@@ -1,0 +1,5 @@
+{
+  "name": "example-app",
+  "alias": "20dd1du3h",
+  "builds": [{ "src": "index.go", "use": "@now/go" }]
+}
