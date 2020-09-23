@@ -52,8 +52,9 @@ func fixical(r io.Reader, w io.Writer) error {
 	}
 
 	newcal := ical.NewCalendar()
-	newcal.Props.SetText(ical.PropVersion, cal.Props.Get(ical.PropVersion).Value)
-	newcal.Props.SetText(ical.PropProductID, cal.Props.Get(ical.PropProductID).Value)
+	newcal.Props.Set(cal.Props.Get(ical.PropVersion))
+	newcal.Props.Set(cal.Props.Get(ical.PropProductID))
+	newcal.Props.Set(cal.Props.Get("X-WR-CALNAME"))
 
 	for _, event := range cal.Events() {
 		event.Props.SetText(ical.PropUID, fmt.Sprint(time.Now().UnixNano()))
