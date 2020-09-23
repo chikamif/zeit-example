@@ -18,7 +18,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Not authorized", 401)
 		return
 	}
-	url := r.URL.Query().Get("url")
+	url := "https://apps.fujisan.co.jp/desknets/cgi-bin/dneoical/dneoical.php"
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
